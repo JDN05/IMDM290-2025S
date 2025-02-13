@@ -1,1 +1,1 @@
-![heart](smoler.png)
+![heart](smoler.gif)
