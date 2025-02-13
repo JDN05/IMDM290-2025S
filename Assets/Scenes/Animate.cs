@@ -10,7 +10,7 @@ public class Animate : MonoBehaviour
 {
     GameObject[] spheres;
     static int numSphere = 100; 
-    float time = 0f;
+    float time = 0;
     Vector3[] initPos;
     // Start is called before the first frame update
     void Start()
@@ -51,9 +51,9 @@ public class Animate : MonoBehaviour
         // what to update?
         for (int i =0; i < numSphere; i++){
             // position
-            spheres[i].transform.position = initPos[i] 
-                                            + new Vector3(Mathf.Sin(time) * 5f, Mathf.Cos(time)* 3f, 1f) ;
-            // color
+            spheres[i].transform.position = Vector3.down;//initPos[i] 
+                                            //+ new Vector3(Mathf.Sin(time + i/50*Mathf.PI) * 5f, Mathf.Cos(time + i/50*Mathf.PI)* 3f, 1f) ;
+            // color    
             Renderer sphereRenderer = spheres[i].GetComponent<Renderer>();
             float hue = (float)i / numSphere; // Hue cycles through 0 to 1
             Color color = Color.HSVToRGB(Mathf.Abs(hue * Mathf.Sin(time)), Mathf.Cos(time), 2f + Mathf.Cos(time)); // Full saturation and brightness

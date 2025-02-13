@@ -6,6 +6,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 
 public class Lerp : MonoBehaviour
@@ -73,7 +74,7 @@ public class Lerp : MonoBehaviour
             
             // lerpFraction variable defines the point between startPosition and endPosition (0~1)
             // let it oscillate over time using sin function
-            lerpFraction = Mathf.Sin(time) * 0.5f + 0.5f;
+            lerpFraction = Mathf.Clamp(Mathf.Sin(time + (float)i / 250f * Mathf.PI) * 0.5f + 1f, 0f, 1f);
 
             // Lerp logic. Update position       
             t = i* 2 * Mathf.PI / numSphere;
